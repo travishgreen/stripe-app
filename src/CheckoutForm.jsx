@@ -13,13 +13,6 @@ export default function CheckoutForm() {
   const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
   const elements = useElements();
-  
-  //Logs non-PCI data that will let us track each individual order
-  const [payload, setPayload] = useState(null);
-  const ConsoleLog = ({ children }) => {
-    console.log(children);
-    return false;
-  };
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -118,7 +111,6 @@ export default function CheckoutForm() {
           {" "}
           Stripe dashboard.
         </a> Refresh the page to pay again.
-        <ConsoleLog>{payload}</ConsoleLog>
       </p>
     </form>
   );
