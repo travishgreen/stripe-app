@@ -77,7 +77,6 @@ export default function CheckoutForm() {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      setPayload(payload);
     }
   };
 
