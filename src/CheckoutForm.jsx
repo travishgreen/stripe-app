@@ -4,6 +4,7 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import { ErrorHandler} from 'universal-react-logger';
 
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
@@ -18,6 +19,7 @@ export default function CheckoutForm() {
   const [payload, setPayload] = useState(null);
   const ConsoleLog = ({ children }) => {
     console.log(children);
+    this.setEventError(children);
     return false;
   };
 

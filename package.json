@@ -8,8 +8,10 @@
     "express": "^4.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.0",
-    "stripe": "^7.15.0"
+    "stripe": "^7.15.0",
+    "universal-react-logger": "^1.0.6"
   },
   "homepage": "http://localhost:3000/checkout",
   "proxy": "http://localhost:4242",
