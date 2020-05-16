@@ -19,7 +19,7 @@ app.post("/create-payment-intent", async (req, res) => {
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
-    currency: "usd"
+    currency: "usd",
     // Verifies the integration works using the Stripe docs
     metadata: {integration_check: 'accept_a_payment'},
   });
