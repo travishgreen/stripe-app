@@ -29,4 +29,24 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
+// Match the raw body to content type application/json
+app.post("/webhook", async (req, res) => {
+  let data, eventType;
+
+    // we can retrieve the event data directly from the request body.
+    data = req.body.data;
+    eventType = req.body.type;
+
+  if (eventType === "payment_intent.succeeded") {
+    // Funds have been captured
+    // Fulfill any orders, e-mail receipts, etc
+    // To cancel the payment after capture you will need to issue a Refund (https://stripe.com/docs/api/refunds)
+    console.log("💰 Payment captured!");
+    console.log(data);
+  } else if (eventType === "payment_intent.payment_failed") {
+    console.log("❌ Payment failed.");
+  }
+  res.sendStatus(200);
+});
+
 app.listen(4242, () => console.log('Node server listening on port 4242!'));
