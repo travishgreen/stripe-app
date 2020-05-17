@@ -33,26 +33,24 @@ Ensure you have git, nvm, stripe, concurrently, yarn, homebrew, and winston inst
 ```npm install winston --save``` (https://github.com/winstonjs/winston) -> for easier logging
 
 ### 1. Download branch
- CHECK THIS -> ```git clone https://github.com/travishgreen/stripe-app.git```
+Can be cloned from here: ```git clone https://github.com/travishgreen/stripe-app.git```
+
+Move to the containing folder, likey via: ```cd stripe-app/```
 
 ### 2. Finalize your local environment setup
 #### a. Get Stripe JS 
 ```npm install --save @stripe/react-stripe-js @stripe/stripe-js```
 #### b. Toggle into test mode (bottom of the left nav pane in the bottom left of the Dashboard screen)
-#### c. Replace public keys in app.js and secret key into server.js from the Dashboard (https://dashboard.stripe.com/test/apikeys)
+#### c. Replace public keys in src/app.js and secret key into server.js from the Dashboard (https://dashboard.stripe.com/test/apikeys)
 #### NOTES: 
 i. Added metadata to the payments so that the older/current documentation's test cases validate on this snazzy webpage (https://stripe.com/docs/payments/accept-a-payment#web-test-integration)
 
 ii. Keys included in the sample have been cycled
 
 ### 3. Run the application
-In a new tab, run these commands:
+In a new window, navigate to the stripe-app folder, and run these commands:
 
-```npx create-react-app my-app``` (https://github.com/facebook/create-react-app)
-
-```npm init react-app my-app```
-
-```cd my-app```
+```npm install```
 
 ```npm start```
 
@@ -64,7 +62,7 @@ In a new tab, run these commands:
 In a new tab: ```stripe listen --forward-to http://localhost:4242/webhook```
 
 ### 5. Run through the test cases
-#### Go to [localhost:3000/checkout] for card entry
+#### Go to [localhost:3000/checkout] to enter each test card's details
 
 #### Options validating for the test cases:
 ##### i. Web (https://stripe.com/docs/payments/accept-a-payment#web-fulfillment)
