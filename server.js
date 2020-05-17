@@ -7,6 +7,14 @@ const stripe = require("stripe")("sk_test_udnSEBds1xP9dgmyHevTcyzQ00ob7V2Z48");
 app.use(express.static("."));
 app.use(express.json());
 
+const winston = require('winston');
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: 'combined.log' })
+  ]
+});
+
 const calculateOrderAmount = items => {
   // Replace this constant with a calculation of the order's amount
   // Calculate the order total on the server to prevent
@@ -42,8 +50,12 @@ app.post("/webhook", async (req, res) => {
     // Fulfill any orders, e-mail receipts, etc
     // To cancel the payment after capture you will need to issue a Refund (https://stripe.com/docs/api/refunds)
     console.log("💰 Payment captured!");
-    // Logs non-PCI details related to successful payments we'll need to fulfill
-    console.log(data);
+    // Logs to combined.log all non-PCI details related to successful payments we'll need to fulfill
+    logger.log({
+      level: 'info',
+      message: data
+    });
+    
   } else if (eventType === "payment_intent.payment_failed") {
     console.log("❌ Payment failed.");
   }
