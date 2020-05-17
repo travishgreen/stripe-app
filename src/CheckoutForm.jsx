@@ -82,6 +82,18 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
+      <div>
+        <h1>Buy a $40 retro fleece</h1>
+        <h4>Condition:excellent</h4>
+        <div className="gear-image">
+          <img
+            alt="Sweet bright pink patagonia fleece"
+            src="https://d2h1pu99sxkfvn.cloudfront.net/b0/5258558/369162547_9cLnZW6sMp/P0.jpg"
+            width="140"
+            height="160"
+          />
+        </div>
+      </div>
       <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
       <button
         disabled={processing || disabled || succeeded}

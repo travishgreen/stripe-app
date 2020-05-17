@@ -1,0 +1,9 @@
+/*Inspired by https://github.com/stripe-samples/checkout-one-time-payments/blob/master/client-only/client/react-cra/src/css/global.css*/
+
+.gear-image img {
+  border-radius: var(--radius);
+  background-color: var(--gray-border);
+  box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
+    0 3px 6px 0 rgba(0, 0, 0, 0.07);
+  opacity: 0;
+}
