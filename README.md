@@ -74,3 +74,6 @@ Enter card details from https://stripe.com/docs/payments/accept-a-payment#web-fu
 Open the dashboard
 Confirm that you're viewing test data (bottom left of the screen)
 Go to the "Payments" tab (top of the left nav) and run through the payments there
+
+### 6. Verify Logging
+After running the test cases, logs can be found in ```combined.log``` in the project's root directory.
